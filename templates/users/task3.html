@@ -1,0 +1,126 @@
+{% extends 'users/userbase.html' %}
+{% block content %}
+{% load static %}
+<br><br><br><br><br>
+<div class="container">
+  <h2>Set Time Range</h2>
+  <form method="post">
+    {% csrf_token %}
+    
+    <div class="form-group">
+      <label for="start_hour">Starting Hour:</label>
+      <input type="number" id="start_hour" name="start_hour" class="form-control" min="0" max="23" required>
+    </div>
+
+    <div class="form-group">
+      <label for="end_hour">Ending Hour:</label>
+      <input type="number" id="end_hour" name="end_hour" class="form-control" min="0" max="23" required>
+    </div>
+
+    <div class="form-group">
+      <label for="start_day">Starting Day:</label>
+      <input type="number" id="start_day" name="start_day" class="form-control" min="1" max="31" required>
+    </div>
+
+    <div class="form-group">
+      <label for="end_day">Ending Day:</label>
+      <input type="number" id="end_day" name="end_day" class="form-control" min="1" max="31" required>
+    </div>
+
+    <div class="form-group">
+      <label for="start_month">Starting Month:</label>
+      <input type="number" id="start_month" name="start_month" class="form-control" min="1" max="12" required>
+    </div>
+
+    <div class="form-group">
+      <label for="end_month">Ending Month:</label>
+      <input type="number" id="end_month" name="end_month" class="form-control" min="1" max="12" required>
+    </div>
+
+    <div class="form-group">
+      <label for="start_week_day">Starting Weekday:</label>
+      <input type="text" id="start_week_day" name="start_week_day" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="end_week_day">Ending Weekday:</label>
+      <input type="text" id="end_week_day" name="end_week_day" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <div class="prediction-results mt-4">
+    <h3>Prediction Results:</h3>
+    <p><strong>Prediction Range:</strong> {{predictions}}</p>
+    <p><strong>The Traffic:</strong> {{mark}}</p>
+  </div>
+</div>
+<br><br><br>
+
+<style>
+  .container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  label {
+    font-weight: bold;
+    color: #495057;
+  }
+
+  .form-control {
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .btn-primary {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+
+  .prediction-results {
+    background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .prediction-results h3 {
+    color: #495057;
+  }
+
+  .prediction-results p {
+    font-size: 16px;
+    color: #333;
+  }
+</style>
+
+{% endblock %}

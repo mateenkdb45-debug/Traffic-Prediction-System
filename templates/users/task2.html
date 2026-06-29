@@ -1,0 +1,68 @@
+{% extends 'users/userbase.html' %}
+
+{% block content %}
+<br><br><br><br><br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-top: 50px;
+        }
+
+        .results {
+            text-align: center;
+            font-size: 18px;
+            color: #34495e;
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .results p {
+            margin: 10px 0;
+        }
+
+        .results .label {
+            font-weight: bold;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Model Performance</h1>
+    <div class="results">
+        <p><span class="label">Mean Absolute Error:</span> {{mae}}</p>
+        <p><span class="label">Mean Squared Error:</span> {{mse}}</p>
+        <p><span class="label">r2 Score:</span> {{r2}}</p>
+    </div>
+
+    {% if error %}
+    <div class="error">
+        <p>{{error}}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
+{% endblock %}
