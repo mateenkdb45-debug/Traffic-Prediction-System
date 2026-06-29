@@ -1,1 +1,1 @@
-#Static files for the Traffic Prediction System
+# Static files for the Traffic Prediction System
